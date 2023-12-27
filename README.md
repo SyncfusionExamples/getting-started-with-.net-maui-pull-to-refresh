@@ -1,4 +1,4 @@
-# Getting Started with the .NET MAUI DataGrid 
+# Getting Started with the .NET MAUI PullToRefresh 
 The Syncfusion .NET MAUI PullToRefresh control allows you to refresh the content displayed within it through a simple pull-to-refresh action. It has the ability to load various UI views in its pulling pane, enabling users to initiate the refresh by pulling down from the top of the view. Additionally, the control offers support for different transition modes and allows for comprehensive customization of the user interface.
 
 Refer to the following documentation for the Syncfusion .NET MAUI PullToRefresh Control: 
