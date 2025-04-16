@@ -1,5 +1,5 @@
 # Getting Started with the .NET MAUI PullToRefresh 
-The Syncfusion .NET MAUI PullToRefresh control allows you to refresh the content displayed within it through a simple pull-to-refresh action. It has the ability to load various UI views in its pulling pane, enabling users to initiate the refresh by pulling down from the top of the view. Additionally, the control offers support for different transition modes and allows for comprehensive customization of the user interface.
+The [Syncfusion .NET MAUI PullToRefresh](https://www.syncfusion.com/maui-controls/maui-pull-to-refresh) control allows you to refresh the content displayed within it through a simple pull-to-refresh action. It has the ability to load various UI views in its pulling pane, enabling users to initiate the refresh by pulling down from the top of the view. Additionally, the control offers support for different transition modes and allows for comprehensive customization of the user interface.
 
 Refer to the following documentation for the Syncfusion .NET MAUI PullToRefresh Control: 
 
@@ -21,7 +21,20 @@ Display complex views like ListView, DataGrid, and other layouts within the pull
 Customize the stroke color, stroke thickness, background, height, and width of the refresh indicator.
 
 ### View templating
-Display any view or control in the progress indicator view for both pulling and refreshing actions. 
+Display any view or control in the progress indicator view for both pulling and refreshing actions.
+
+## Related links
+[Learn More about .NET MAUI Rating](https://www.syncfusion.com/maui-controls/maui-pull-to-refresh?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples)
+[Download Free Trial](https://www.syncfusion.com/account/manage-trials/downloads?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples)
+[Pricing](https://www.syncfusion.com/sales/teamlicense?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples)
+[Documentation](https://help.syncfusion.com/maui/pull-to-refresh/getting-started?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples)
+[View Demos](https://github.com/syncfusion/maui-demos/tree/master/MAUI/PullToRefresh/SampleBrowser.Maui.PullToRefresh?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples)
+[Community Forums](https://www.syncfusion.com/forums/maui?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples)
+[Suggest a feature or report a bug](https://www.syncfusion.com/feedback/maui?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples)
+[Online example](https://github.com/syncfusion/maui-demos/tree/master/MAUI/PullToRefresh/SampleBrowser.Maui.PullToRefresh?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples )
+
+## About Syncfusion .NET MAUI PullToRefresh
+The Syncfusion's [.NET MAUI PullToRefresh](https://www.syncfusion.com/maui-controls/maui-pull-to-refresh?utm_source=github&utm_medium=listing&utm_campaign=maui-pulltoRefresh-github-samples) library offers over 90 UI components to work with Blazor server-side and client-side (Blazor WebAssembly) projects seamlessly. In addition to Speed Dial, we provide popular Blazor Components such as [DataGrid](https://www.syncfusion.com/blazor-components/blazor-datagrid?utm_source=github&utm_medium=listing&utm_campaign=blazor-speed-dial-github-samples), [Charts](https://www.syncfusion.com/blazor-components/blazor-charts?utm_source=github&utm_medium=listing&utm_campaign=blazor-speed-dial-github-samples), [Scheduler](https://www.syncfusion.com/blazor-components/blazor-scheduler?utm_source=github&utm_medium=listing&utm_campaign=blazor-speed-dial-github-samples), [Diagram](https://www.syncfusion.com/blazor-components/blazor-diagram?utm_source=github&utm_medium=listing&utm_campaign=blazor-speed-dial-github-samples), and [Word Processor](https://www.syncfusion.com/blazor-components/blazor-word-processor?utm_source=github&utm_medium=listing&utm_campaign=blazor-speed-dial-github-samples).
 
 ### About Syncfusion
 Founded in 2001 and headquartered in Research Triangle Park, N.C., Syncfusion has more than 29,000 customers and more than 1 million users, including large financial institutions, Fortune 500 companies, and global IT consultancies.
