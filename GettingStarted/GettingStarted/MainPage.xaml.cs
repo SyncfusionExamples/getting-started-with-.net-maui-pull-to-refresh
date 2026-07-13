@@ -6,6 +6,6 @@
         {
             InitializeComponent();
         }
-    }
 
+    }
 }
