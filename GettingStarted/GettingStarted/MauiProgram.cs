@@ -10,16 +10,16 @@ namespace GettingStarted
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("Roboto-Medium.ttf", "Roboto-Medium");
-                    fonts.AddFont("Roboto-Regular.ttf", "Roboto-Regular");
-                    fonts.AddFont("PullToRefreshFontIcon.ttf", "PullToRefreshFontIcon");
                 });
 
+#if DEBUG
+    		builder.Logging.AddDebug();
+#endif
+            builder.ConfigureSyncfusionCore();
             return builder.Build();
         }
     }

@@ -1,10 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net9.0;net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+		<TargetFrameworks>net10.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
 
 		<!-- Note for MacCatalyst:
 		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
@@ -20,6 +19,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
+		<!-- Enable XAML source generation for faster build times and improved performance.
+		     This generates C# code from XAML at compile time instead of runtime inflation.
+		     To disable, remove this line.
+		     For individual files, you can override by setting Inflator metadata:
+		       <MauiXaml Update="MyPage.xaml" Inflator="Default" /> (reverts to defaults: Runtime for Debug, XamlC for Release)
+		       <MauiXaml Update="MyPage.xaml" Inflator="Runtime" /> (force runtime inflation) -->
+		<MauiXamlInflator>SourceGen</MauiXamlInflator>
+
 		<!-- Display name -->
 		<ApplicationTitle>GettingStarted</ApplicationTitle>
 
@@ -30,12 +37,14 @@
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">12.2</SupportedOSPlatformVersion>
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -48,7 +57,7 @@
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
-
+		
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
@@ -57,42 +66,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Images\circlegradient.png" />
-	  <None Remove="Images\cloud1.png" />
-	  <None Remove="Images\cloud2.png" />
-	  <None Remove="Images\cloud3.png" />
-	  <None Remove="Images\cloud4.png" />
-	  <None Remove="Images\foggywithcloudy.png" />
-	  <None Remove="Images\heavyrain.png" />
-	  <None Remove="Images\mostlycloudy.png" />
-	  <None Remove="Images\partlysunny.png" />
-	  <None Remove="Images\snowwithcloudy.png" />
-	  <None Remove="Images\sunny.png" />
-	  <None Remove="Images\thunderstrom.png" />
-	  <None Remove="Resources\Fonts\PullToRefreshFontIcon.ttf" />
-	  <None Remove="Resources\Fonts\Roboto-Medium.ttf" />
-	  <None Remove="Resources\Fonts\Roboto-Regular.ttf" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiImage Include="Images\circlegradient.png" />
-	  <MauiImage Include="Images\cloud1.png" />
-	  <MauiImage Include="Images\cloud2.png" />
-	  <MauiImage Include="Images\cloud3.png" />
-	  <MauiImage Include="Images\cloud4.png" />
-	  <MauiImage Include="Images\foggywithcloudy.png" />
-	  <MauiImage Include="Images\heavyrain.png" />
-	  <MauiImage Include="Images\mostlycloudy.png" />
-	  <MauiImage Include="Images\partlysunny.png" />
-	  <MauiImage Include="Images\snowwithcloudy.png" />
-	  <MauiImage Include="Images\sunny.png" />
-	  <MauiImage Include="Images\thunderstrom.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.Core" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.PullToRefresh" Version="*" />
 		<PackageReference Include="Syncfusion.Maui.DataSource" Version="*" />
